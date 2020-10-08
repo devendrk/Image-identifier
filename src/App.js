@@ -9,7 +9,6 @@ import { storage, database } from "./firebase";
 function App() {
   const [image, setImage] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
-  const [error, setError] = useState("");
   const [progress, setProgress] = useState(0);
   const [imageContents, setImageContents] = useState([]);
 
@@ -39,7 +38,6 @@ function App() {
       },
       (error) => {
         console.log(error);
-        setError("Some thing went wrong, Try another image");
       },
       () => {
         storage

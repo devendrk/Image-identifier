@@ -27,5 +27,6 @@
   text-align: center;
 }
 .imageContents {
+  margin: 5px;
   display: flex;
 }

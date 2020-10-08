@@ -9,7 +9,7 @@ import { storage, database } from "./firebase";
 function App() {
   const [image, setImage] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
-  const [Error, setError] = useState("");
+  const [error, setError] = useState("");
   const [progress, setProgress] = useState(0);
   const [imageContents, setImageContents] = useState([]);
 
@@ -67,15 +67,9 @@ function App() {
   const renderResult = () => {
     return (
       imageContents &&
-      imageContents.map((img) => {
-        return (
-          <>
-            <div className={styles.imageContents}>
-              <ImageContent content={img.name} key={img.mid} />
-            </div>
-          </>
-        );
-      })
+      imageContents.map((img) => (
+        <ImageContent content={img.name} key={img.mid} />
+      ))
     );
   };
   return (
@@ -89,7 +83,7 @@ function App() {
       {progress > 0 ? (
         <progress value={progress} max="100" className={styles.progress} />
       ) : (
-        <p>oops something went wrong</p>
+        <p>{error}</p>
       )}
       <div className={styles.chooseFile}>
         <input
@@ -108,7 +102,7 @@ function App() {
       {imgUrl && !imageContents ? (
         <p>Cannot Identified image, please try another :) </p>
       ) : (
-        renderResult()
+        <div className={styles.imageContents}>{renderResult()}</div>
       )}
     </div>
   );

@@ -15,9 +15,8 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log("This will run after 1 second!");
       handleGetImageContent();
-    }, 3000);
+    }, 2500);
     return () => clearTimeout(timer);
   }, [imgUrl]);
 
@@ -54,7 +53,7 @@ function App() {
     );
   };
 
-  // Get Json result image contents from database
+  // Fetch Json result image contents from database
   const handleGetImageContent = () => {
     imgUrl &&
       database
@@ -64,14 +63,19 @@ function App() {
           setImageContents(snapshot.val());
         });
   };
-  console.log("url", imgUrl);
-  console.log("image contenttt", imageContents);
 
   const renderResult = () => {
     return (
       imageContents &&
       imageContents.map((img) => {
-        return <ImageContent content={img.name} key={img.mid} />;
+        return (
+          <>
+            <h4 className={styles.imageContentsHeader}>Image contents</h4>
+            <div className={styles.imageContents}>
+              <ImageContent content={img.name} key={img.mid} />
+            </div>
+          </>
+        );
       })
     );
   };
@@ -99,16 +103,12 @@ function App() {
           onClick={image && handleImageUpload}
         />
       </div>
-      <div className={styles.imageContentsHeader}>
-        <h4>Image contents</h4>
-        <div className={styles.imageContents}>
-          {imgUrl && !imageContents ? (
-            <p>cannot Identified image, please try another</p>
-          ) : (
-            renderResult()
-          )}
-        </div>
-      </div>
+
+      {imgUrl && !imageContents ? (
+        <p>cannot Identified image, please try another</p>
+      ) : (
+        renderResult()
+      )}
     </div>
   );
 }

@@ -37,9 +37,9 @@ This app analyzes image and display the contents of the image.
 - Got several errors while deploying the function, with reading the error, googling finally able to deploy.
 - Used 2 different storage (fire base and Realtime database) for sake of learning, But had to spend a bit of time to read the docs and apply it to fetch the result of analyzed image.
 
-## I would improve make following imporvement if I would have enough time.
+## I would make following imporvement if I would have enough time.
 
-- would use O-auth and email authentication with proper statemanagement eg. redux or Context ApI.
+- Would use O-auth and email authentication with proper statemanagement eg. redux or Context ApI.
 - Would learn more about best practices of Google cloud functions, database security rules and apply them.
 - Would make more nicer ui components and better error handling.
 - Would add test

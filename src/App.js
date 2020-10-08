@@ -86,8 +86,10 @@ function App() {
         width="150"
         height="150"
       />
-      {progress > 0 && (
+      {progress > 0 ? (
         <progress value={progress} max="100" className={styles.progress} />
+      ) : (
+        <p>oops something went wrong</p>
       )}
       <div className={styles.chooseFile}>
         <input

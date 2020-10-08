@@ -9,8 +9,17 @@ import { storage, database } from "./firebase";
 function App() {
   const [image, setImage] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
+  const [Error, setError] = useState("");
   const [progress, setProgress] = useState(0);
   const [imageContents, setImageContents] = useState([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("This will run after 1 second!");
+      handleGetImageContent();
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [imgUrl]);
 
   const onChange = (e) => {
     const imgFile = e.target.files[0];
@@ -31,6 +40,7 @@ function App() {
       },
       (error) => {
         console.log(error);
+        setError("Some thing went wrong, Try another image");
       },
       () => {
         storage
@@ -43,16 +53,27 @@ function App() {
       }
     );
   };
-  useEffect(() => {
-    handleGetImageContent();
-  }, [imgUrl]);
+
+  // Get Json result image contents from database
   const handleGetImageContent = () => {
-    database
-      .ref("/JsonResponse")
-      .once("value")
-      .then((snapshot) => {
-        setImageContents(snapshot.val());
-      });
+    imgUrl &&
+      database
+        .ref("/JsonResponse")
+        .once("value")
+        .then((snapshot) => {
+          setImageContents(snapshot.val());
+        });
+  };
+  console.log("url", imgUrl);
+  console.log("image contenttt", imageContents);
+
+  const renderResult = () => {
+    return (
+      imageContents &&
+      imageContents.map((img) => {
+        return <ImageContent content={img.name} key={img.mid} />;
+      })
+    );
   };
   return (
     <div className={styles.main}>
@@ -66,7 +87,12 @@ function App() {
         <progress value={progress} max="100" className={styles.progress} />
       )}
       <div className={styles.chooseFile}>
-        <input type="file" onChange={onChange} className={styles.inputFile} />
+        <input
+          type="file"
+          onChange={onChange}
+          className={styles.inputFile}
+          accept="image/*"
+        />
         <Button
           label="Upload"
           btnType="primary"
@@ -76,11 +102,11 @@ function App() {
       <div className={styles.imageContentsHeader}>
         <h4>Image contents</h4>
         <div className={styles.imageContents}>
-          {imageContents &&
-            imageContents.map((img) => {
-              console.log(img.name);
-              return <ImageContent content={img.name} key={img.mid} />;
-            })}
+          {imgUrl && !imageContents ? (
+            <p>cannot Identified image, please try another</p>
+          ) : (
+            renderResult()
+          )}
         </div>
       </div>
     </div>

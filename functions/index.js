@@ -16,7 +16,7 @@ exports.GetImageJson = functions.storage.object().onFinalize(async (object) => {
   await db
     .ref("JsonResponse")
     .set(objects)
-    .catch((e) => {
-      console.log;
+    .catch((error) => {
+      console.log(error);
     });
 });

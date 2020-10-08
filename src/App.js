@@ -70,7 +70,6 @@ function App() {
       imageContents.map((img) => {
         return (
           <>
-            <h4 className={styles.imageContentsHeader}>Image contents</h4>
             <div className={styles.imageContents}>
               <ImageContent content={img.name} key={img.mid} />
             </div>
@@ -105,7 +104,7 @@ function App() {
       </div>
 
       {imgUrl && !imageContents ? (
-        <p>cannot Identified image, please try another</p>
+        <p>Cannot Identified image, please try another :) </p>
       ) : (
         renderResult()
       )}

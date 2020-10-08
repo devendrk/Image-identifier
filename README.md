@@ -37,7 +37,7 @@ This app analyzes image and display the contents of the image.
 ## I would improve make following imporvement if I would have enough time.
 
 - would use O-auth and email authentication with proper statemanagement eg. redux or Context ApI.
-- woul learn more about best practices of Google cloud functions and apply them.
+- Would learn more about best practices of Google cloud functions, database security rules and apply them.
 - Would make more nicer ui components.
 - Would add test
 - Would make Native app

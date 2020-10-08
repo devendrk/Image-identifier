@@ -3,7 +3,7 @@ import "firebase/storage";
 import "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCQTUaUHDiz3OkZCqDjEQfUJ-UREfSZIqU",
+  apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   authDomain: "image-identifier-9704c.firebaseapp.com",
   databaseURL: "https://image-identifier-9704c.firebaseio.com",
   projectId: "image-identifier-9704c",

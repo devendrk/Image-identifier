@@ -1,0 +1,31 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 2vmin);
+}
+.progress {
+  width: 150px;
+  margin-top: 10px;
+}
+.chooseFile {
+  margin: 10px;
+  display: flex;
+  border: 2px solid gray;
+  align-items: center;
+}
+
+.inputFile {
+  padding: 10px;
+  margin-left: 10px;
+  align-self: center;
+}
+
+.imageContentsHeader {
+  text-align: center;
+}
+.imageContents {
+  display: flex;
+}

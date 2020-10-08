@@ -1,6 +1,8 @@
 [![React Version](https://img.shields.io/badge/React-16.12.0-61DAFB.svg?style=flat&logo=React)]() <br/>
 [![Netlify Status](https://api.netlify.com/api/v1/badges/815e5eee-2e9d-42e5-a1e8-4f429ccb29da/deploy-status)](https://image-content-identifier.netlify.app/)
 
+[Master branch live preview](https://image-content-identifier.netlify.app/) <br/>
+
 ## Image-identifier
 
 This app analyzes image and display the contents of the image.

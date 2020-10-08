@@ -83,7 +83,7 @@ function App() {
       {progress > 0 ? (
         <progress value={progress} max="100" className={styles.progress} />
       ) : (
-        <p>{error}</p>
+        <p>Upload image to see the magic</p>
       )}
       <div className={styles.chooseFile}>
         <input

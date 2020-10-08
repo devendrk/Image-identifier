@@ -1,8 +1,8 @@
 [![React Version](https://img.shields.io/badge/React-16.12.0-61DAFB.svg?style=flat&logo=React)]() <br/>
 
-## Score-board
+## Image-identifier
 
-Web app that shows list of top scoreres.User can add new players information.
+This app analyzes image and display the contents of the image.
 
 ## 🚀 Quick start
 
@@ -16,7 +16,6 @@ Web app that shows list of top scoreres.User can add new players information.
     ```
 
 2.  **To install packages**
-
     Using either yarn/npm install
 
     ```shell
@@ -29,3 +28,16 @@ Web app that shows list of top scoreres.User can add new players information.
     ```shell
     npm start
     ```
+
+## Problems I faced duirng this project.
+
+- Got several errors while deploying the function, with reading the error, googling finally able to deploy.
+- Used 2 different storage (fire base and Realtime database) for sake of learning, But had to spend a bit of time to read the docs and apply it to fetch the result of analyzed image.
+
+## I would improve make following imporvement if I would have enough time.
+
+- would use O-auth and email authentication with proper statemanagement eg. redux or Context ApI.
+- woul learn more about best practices of Google cloud functions and apply them.
+- Would make more nicer ui components.
+- Would add test
+- Would make Native app
